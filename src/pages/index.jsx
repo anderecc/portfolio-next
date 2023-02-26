@@ -30,7 +30,7 @@ export default function Home() {
     return (
         <div className="layout">
             <Head>
-                <title>Anderson - Portifólio</title>
+                <title>Anderson - Portfólio</title>
 
                 <link rel="icon" href="./images/anderson.svg" />
             </Head>
