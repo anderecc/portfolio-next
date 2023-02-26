@@ -1,0 +1,88 @@
+@import 'mixins'
+@import 'variables'
+
+.container
+    font-family: 'Chakra Petch', sans-serif
+    z-index: 10
+
+.top
+    background-color: $headerBg
+    position: relative
+    @include flex-center
+    justify-content: space-around
+    color: $titles
+    font-size: 1.8rem
+    font-weight: bold
+    padding: 3% 10px
+    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, .5)
+    z-index: 1
+    @include desktop
+        padding: 1.5% 0
+    h1
+        cursor: pointer
+        user-select: none
+    button
+        color: $text
+        width: 40px
+        height: 40px
+        @include desktop
+            display: none
+
+.nav
+    transform: translateY(-150%)
+    padding: 3% 0
+    position: absolute
+    width: 100%
+    transition: all .3s
+    flex-direction: column
+    background-color: $bg
+    @include flex-center
+    justify-content: center
+    text-align: center
+    @include desktop
+        transform: translateY(0)
+        position: relative
+        padding: 5px 0
+
+    ul
+        width: 100%
+        @include desktop
+            @include flex-center
+            justify-content: space-around
+        li
+            position: relative
+            .link
+                width: 100%
+                padding: 5px 10px
+                display: block
+                font-size: 1.3rem
+                color: $colorLink
+
+            &::after
+                content: ''
+                width: 20%
+                transform: translateX(-150%)
+                position: absolute
+                transition: all .4s
+                @include flex-center
+                top: 50%
+                border-bottom: solid 2px $colorLink
+            &:hover
+                &::after
+                    transform: translateX(0%)
+                    @include desktop
+                        transform: translateX(-80%)
+
+.menuOpen
+    transform: translateY(0%)
+
+.menuClose
+    transform: translateY(-150%)
+    @include desktop
+        transform: translateY(0%)
+
+.socials
+    width: 20%
+    ul
+        @include flex-center
+        justify-content: space-around

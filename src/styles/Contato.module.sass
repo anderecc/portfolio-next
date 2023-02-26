@@ -1,0 +1,40 @@
+@import 'mixins'
+@import 'variables'
+
+.title
+    @include title
+
+.text
+    @include text
+    margin: 2% 0
+    span
+        margin-right: 2%
+
+.h1
+    @include h1
+.container
+    font-family: $fontText
+    font-size: 1.1rem
+    button
+        padding: 10px 15px
+        border: none
+        border-radius: 5px
+        font-weight: 600
+        font-size: 1rem
+        color: $text
+        background-color: #648a64
+
+.form
+    @include flex-center
+    flex-direction: column
+    justify-content: space-evenly
+    width: 100%
+    min-height: 450px
+    input
+        width: 100%
+
+    #email
+        min-height: 50px
+
+    #mensagem
+        min-height: 250px

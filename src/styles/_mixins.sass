@@ -1,0 +1,31 @@
+@mixin flex-center
+    display: flex
+    align-items: center
+
+@mixin desktop
+    @media screen and ( min-width: 820px )
+        @content
+@mixin tablet
+    @media screen and ( min-width: 640px )
+        @content
+
+@mixin title
+    font-family: $fontTitle
+    font-size: 1.4rem
+    font-weight: bold
+    letter-spacing: 1px
+    color: $titles
+    margin: 5% 0 2% 0
+
+@mixin text
+    margin: 2px 0
+    font-weight: normal
+    color: $text
+    display: flex
+    align-items: center
+
+@mixin h1
+    color: $titles
+    font-family: $fontTitle
+    font-size: 1.7rem
+    margin: 1rem

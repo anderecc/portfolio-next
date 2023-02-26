@@ -1,0 +1,31 @@
+@import 'mixins'
+@import 'variables'
+
+.h1
+    @include h1
+.introducao
+    font-family: $fontText
+    color: $text
+    font-size: 1rem
+
+.title
+    @include title
+
+.skills
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    align-items: center
+    flex-wrap: wrap
+    li
+        @include flex-center
+        span
+            margin-left: 5%
+.container
+    font-family: $fontText
+    li
+        padding: 5px 0
+        font-weight: 600
+        color: $titles
+
+.text
+    @include text
