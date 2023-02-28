@@ -46,7 +46,7 @@ export default function Home() {
                     <section className={styles.container}>
                         <p className={styles.introducao}>
                             Uma breve introdução sobre minha pessoa e meu
-                            portifólio, tenho 20 anos, sou muito focado e vou
+                            portfólio, tenho 21 anos, sou muito focado e vou
                             construir meu futuro com programação, atualmente
                             estou estudando programação FrontEnd, mas tenho
                             conhecimentos em BackEnd, na construção de {`API's`}
