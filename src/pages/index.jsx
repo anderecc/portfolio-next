@@ -144,14 +144,6 @@ export default function Home() {
                             <p className={styles.title}>Cursos concluídos</p>
                             <ul>
                                 <li>
-                                    JavaScript 30 - Esse curso é gratuito e
-                                    disponibilizado por WesBos.
-                                    <p className={styles.text}>
-                                        Foi um ótimo curso para aprender muito
-                                        sobre Js.
-                                    </p>
-                                </li>
-                                <li>
                                     Curso Web Design Completo: HTML5, CSS3 e JS
                                     + 5 Projetos, por Daniel Tapias Morales.
                                     (54,5 horas no total)

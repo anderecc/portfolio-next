@@ -195,12 +195,12 @@ export let projetos = {
         {
             id: 3,
             name: '3-perfil-info',
-            image: '/images/projetos-html-css-sass/1-subscription-plan.png',
+            image: '/images/projetos-html-css-sass/3-perfil-info.png',
         },
         {
             id: 4,
             name: '4-game-shop',
-            image: '/images/projetos-html-css-sass/3-perfil-info.png',
+            image: '/images/projetos-html-css-sass/4-game-shop.png',
         },
         {
             id: 5,
@@ -241,6 +241,63 @@ export let projetos = {
             id: 12,
             name: '12-electrum-ecommerce',
             image: '/images/projetos-html-css-sass/12-electrum-ecommerce.png',
+        },
+    ],
+    react: [
+        {
+            id: 1,
+            name: '1-birthday-reminder',
+            image: '/images/projetos-react/1-birthday-reminder.png',
+        },
+        {
+            id: 2,
+            name: '2-tours-fetch',
+            image: '/images/projetos-react/2-tours-fetch.png',
+        },
+        {
+            id: 3,
+            name: '3-todo-app',
+            image: '/images/projetos-react/3-todo-app.png',
+        },
+        {
+            id: 4,
+            name: '4-reviews-fetch',
+            image: '/images/projetos-react/4-reviews-fetch.png',
+        },
+        {
+            id: 5,
+            name: '5-accordion',
+            image: '/images/projetos-react/5-accordion.png',
+        },
+        {
+            id: 6,
+            name: '6-menu-restaurant',
+            image: '/images/projetos-react/6-menu-restaurant.png',
+        },
+        {
+            id: 7,
+            name: '7-tabs-setup',
+            image: '/images/projetos-react/7-tabs-setup.png',
+        },
+        {
+            id: 8,
+            name: '8-lorem-generator',
+            image: '/images/projetos-react/8-lorem-generator.png',
+        },
+        {
+            id: 9,
+            name: '9-lista-tarefa-reducer',
+            image: '/images/projetos-react/9-lista-tarefa-reducer.png',
+        },
+        {
+            id: 10,
+            name: '10-navbar',
+            image: '/images/projetos-react/10-navbar.png',
+        },
+        {
+            id: 11,
+            name: '11-calculator',
+            image: '/images/projetos-react/11-calculator.png',
         },
     ],
 };

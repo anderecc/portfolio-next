@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import Content from '../components/Content';
 import Header from '../components/header/Header';
@@ -13,7 +14,22 @@ import { AppContext } from '../context';
 import styles from '../styles/Contato.module.sass';
 
 export default function Contato(props) {
-    let { state, handleLoading } = useContext(AppContext);
+    let { state, handleLoading, handlePdfGenerate } = useContext(AppContext);
+
+    const onButtonClick = () => {
+        // using Java Script method to get PDF file
+        fetch('/images/cr/crAnderson.pdf').then((response) => {
+            response.blob().then((blob) => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'crAnderson.pdf';
+                alink.click();
+            });
+        });
+    };
 
     return (
         <div className="layout">
@@ -30,7 +46,7 @@ export default function Contato(props) {
                         </p>
                         <p className={styles.text}>
                             <span>{IconEmail}</span> E-mail:
-                            andersondbl06@gmail.com
+                            <span>andersondbl06@gmail.com</span>
                         </p>
                         <div>
                             <p className={styles.text}>
@@ -55,7 +71,12 @@ export default function Contato(props) {
                             </p>
                             <p className={styles.text}>
                                 Baixe também o meu curriculo
-                                <span>{IconDownload}</span>
+                                <button
+                                    className={styles.buttonDownload}
+                                    onClick={onButtonClick}
+                                >
+                                    {IconDownload}
+                                </button>
                             </p>
                         </div>
                         <div>
@@ -72,7 +93,9 @@ export default function Contato(props) {
                                     id={styles.mensagem}
                                     placeholder="Digite sua mensagem"
                                 />
-                                <button>Enviar</button>
+                                <button className={styles.buttonEnviar}>
+                                    Enviar
+                                </button>
                             </form>
                         </div>
                     </section>

@@ -57,6 +57,7 @@ export default function Sobre(props) {
                                 profissionais/pessoais são:
                             </p>
                             <ul className={styles.skills}>
+                                <li>Sou uma pessoa de valor</li>
                                 <li>Trabalho em equipe</li>
                                 <li>Boa comunicação</li>
                                 <li>Perfil de liderança</li>
@@ -93,55 +94,3 @@ export default function Sobre(props) {
         </div>
     );
 }
-// então estava sempre mechendo nas
-//                                     configurações dos aplicativos, nas
-//                                     pernsonalizações, e nos navegadores eu abria
-//                                     o código fonte e tentava desvendar o que era
-//                                     todos aqueles nomes e tags estranhas, até
-//                                     que decidi começar a estudar e estou cada
-//                                     vez mais apaixonado por essa profissão, cada
-//                                     conteúdo novo aprendido, as práticas, ver o
-//                                     projeto tomando forma, funcionando é muito
-//                                     satisfatório.
-
-// Bom atendimento
-
-// Tenho disciplina
-
-// Aprendo rápido
-
-// Tenho noção de trabalho
-
-// Sou bem educado
-
-// Sou simpático
-
-// Gosto de trabalhar
-
-// Sou responsável
-
-// Tento ajudar quando possível
-
-// Sou pontual com os horários
-
-// Não gosto de intrigas
-
-// Sou sincero
-
-// Tenho boa convivência com os colegas de trabalho
-
-// Procuro aprender e absorver o que for passado
-
-// Sou animado
-
-// Tenho força de vontade
-
-// Gosto de motivar a melhorar
-
-// Me dedico ao trabalho
-
-// Sou rápido
-
-// Tenho postura
-
-// [...]

@@ -8,14 +8,20 @@
     @include text
     margin: 2% 0
     span
-        margin-right: 2%
+        margin: 0 1rem
+    a
+        margin-left: 1rem
+        color: $colorLink
+        transition: all .3s
+        &:hover
+            color: $titles
 
 .h1
     @include h1
 .container
     font-family: $fontText
     font-size: 1.1rem
-    button
+    .buttonEnviar
         padding: 10px 15px
         border: none
         border-radius: 5px
@@ -38,3 +44,13 @@
 
     #mensagem
         min-height: 250px
+
+.buttonDownload
+    border: none
+    background-color: transparent
+    margin: 0 1rem
+    font-weight: bold
+    color: $colorLink
+    transition: all .3s
+    &:hover
+        color: $titles

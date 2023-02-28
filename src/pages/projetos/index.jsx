@@ -35,35 +35,45 @@ export default function Projetos(props) {
                         </h3>
                         <div className={styles.content}>
                             <Card
-                                title="Space"
-                                link="https://anderecc.github.io/ProjectSpace/index.html"
-                                projeto="space"
-                            ></Card>
+                                title="fylo-landing-page"
+                                link="https://anderecc.github.io/projetos-html-css-sass/9-fylo-landing-page/index.html"
+                                image="/images/projetos-html-css-sass/9-fylo-landing-page.png"
+                            />
                             <Card
-                                title="Sneaker e-commerce"
-                                link="https://anderecc.github.io/sneakerE-commerce/"
-                                projeto="sneaker"
-                            ></Card>
+                                title="electrum-ecommerce"
+                                link="https://anderecc.github.io/projetos-html-css-sass/12-electrum-ecommerce/index.html"
+                                image="/images/projetos-html-css-sass/12-electrum-ecommerce.png"
+                            />
                             <Card
-                                title="Potions e-commerce"
-                                link="https://anderecc.github.io/potionE-commerce/"
-                                projeto="potions"
-                            ></Card>
+                                title="potions-shop"
+                                link="https://anderecc.github.io/projetos-javascript/30-potions-shop/"
+                                image="/images/projetos-javascript/30-potions-shop.png"
+                            />
                             <Card
-                                title="Electrum e-commerce"
-                                link="https://anderecc.github.io/Electrum-E-Commerce/"
-                                projeto="electrum"
-                            ></Card>
+                                title="sneaker-ecommerce"
+                                link="https://anderecc.github.io/projetos-javascript/34-sneaker-ecommerce/public/index.html"
+                                image="/images/projetos-javascript/34-sneaker-ecommerce.png"
+                            />
                             <Card
-                                title="Quiz App com React"
-                                link="https://quiz-app-com-next-e-react-anderecc-anderecc.vercel.app/resultado?total=16&certas=0"
-                                projeto="quizapp"
-                            ></Card>
+                                title="english-dictionary"
+                                link="https://anderecc.github.io/projetos-javascript/14-english-dictionary/"
+                                image="/images/projetos-javascript/14-english-dictionary.png"
+                            />
                             <Card
-                                title="Calculadora com React"
-                                link="https://calculadora-react-seven.vercel.app/"
-                                projeto="calculadoranpm"
-                            ></Card>
+                                title="calculator"
+                                link="https://projetos-react-psi.vercel.app/11-calculator"
+                                image="/images/projetos-react/11-calculator.png"
+                            />
+                            <Card
+                                title="menu-restaurant"
+                                link="https://projetos-react-psi.vercel.app/6-menu-restaurant"
+                                image="/images/projetos-react/6-menu-restaurant.png"
+                            />
+                            <Card
+                                title="lista-tarefa-reducer"
+                                link="https://projetos-react-psi.vercel.app/9-lista-tarefa-reducer"
+                                image="/images/projetos-react/9-lista-tarefa-reducer.png"
+                            />
                         </div>
                     </div>
                 </Content>
