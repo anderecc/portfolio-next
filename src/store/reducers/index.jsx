@@ -3,6 +3,11 @@ export let initialState = {
     menuOpen: false,
     loading: true,
     projetos: [],
+    sendEmail: {
+        nome: '',
+        email: '',
+        message: '',
+    },
 };
 
 let reducer = (state, action) => {
@@ -16,6 +21,9 @@ let reducer = (state, action) => {
             };
         case 'SET_MENU_OPEN_OR_CLOSE':
             return { ...state, menuOpen: action.payload };
+
+        case 'SET_VALUES_SEND_EMAIL':
+            return { ...state, sendEmail: action.payload };
 
         default:
             return { ...state };

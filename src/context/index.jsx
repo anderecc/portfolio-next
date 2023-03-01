@@ -1,5 +1,10 @@
 import { createContext, useReducer, useEffect } from 'react';
-import { getProjetos, setLoading, setMenuOpenOrClose } from '../store/actions';
+import {
+    getProjetos,
+    setEmail,
+    setLoading,
+    setMenuOpenOrClose,
+} from '../store/actions';
 import reducer, { initialState } from '../store/reducers';
 import { projetos } from '../data';
 import jsPDF from 'jspdf';
@@ -28,17 +33,33 @@ let AppProvider = ({ children }) => {
         }, 1500);
     };
 
-    let handlePdfGenerate = () => {
-        let curriculum = new jsPDF('portrait', 'px', 'a4', 'false')
-            .addImage(
-                '/images/cr/crAnderson1024_1.jpg',
-                'JPEG',
-                0,
-                0,
-                424,
-                1024
-            )
-            .save('crAnderson.pdf');
+    let sendEmail = (e, values) => {
+        e.preventDefault();
+        let { name, email, message } = values;
+        console.log(name, email, message);
+        fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                message,
+            }),
+        })
+            .then((res) => {
+                console.log(res);
+                alert('Certo');
+            })
+            .catch((err) => {
+                console.log(err);
+                alert('Ocorreu um erro');
+            });
+    };
+
+    let handleSetValuesSendEmail = (e, values) => {
+        return dispatch(setEmail(e, values));
     };
 
     return (
@@ -47,7 +68,8 @@ let AppProvider = ({ children }) => {
                 state,
                 handleMenuOpenOrClose,
                 handleLoading,
-                handlePdfGenerate,
+                handleSetValuesSendEmail,
+                sendEmail,
             }}
         >
             {children}

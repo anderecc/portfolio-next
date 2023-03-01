@@ -9,3 +9,8 @@ export let setLoading = (value) => {
 export let setMenuOpenOrClose = (value) => {
     return { type: 'SET_MENU_OPEN_OR_CLOSE', payload: value };
 };
+
+export let setEmail = (e, values) => {
+    e.preventDefault();
+    return { type: 'SET_VALUES_SEND_EMAIL', payload: values };
+};

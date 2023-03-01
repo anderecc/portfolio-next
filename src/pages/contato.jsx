@@ -14,7 +14,8 @@ import { AppContext } from '../context';
 import styles from '../styles/Contato.module.sass';
 
 export default function Contato(props) {
-    let { state, handleLoading, handlePdfGenerate } = useContext(AppContext);
+    let { state, handleLoading, handleSetValuesSendEmail, sendEmail } =
+        useContext(AppContext);
 
     const onButtonClick = () => {
         // using Java Script method to get PDF file
@@ -81,19 +82,48 @@ export default function Contato(props) {
                         </div>
                         <div>
                             <p className={styles.text}>Envie sua mensagem</p>
-                            <form action="post" className={styles.form}>
+                            <form className={styles.form}>
+                                <input
+                                    type="name"
+                                    name="name"
+                                    id={styles.email}
+                                    onChange={(e) =>
+                                        handleSetValuesSendEmail(e, {
+                                            name: e.target.value,
+                                        })
+                                    }
+                                    placeholder="Insira seu Nome"
+                                />
                                 <input
                                     type="email"
                                     name="email"
                                     id={styles.email}
+                                    onChange={(e) =>
+                                        handleSetValuesSendEmail(e, {
+                                            ...state.sendEmail,
+                                            email: e.target.value,
+                                        })
+                                    }
                                     placeholder="Insira seu e-mail"
                                 />
-                                <input
+
+                                <textarea
                                     type="text"
                                     id={styles.mensagem}
+                                    onChange={(e) =>
+                                        handleSetValuesSendEmail(e, {
+                                            ...state.sendEmail,
+                                            message: e.target.value,
+                                        })
+                                    }
                                     placeholder="Digite sua mensagem"
                                 />
-                                <button className={styles.buttonEnviar}>
+                                <button
+                                    className={styles.buttonEnviar}
+                                    onClick={(e) =>
+                                        sendEmail(e, state.sendEmail)
+                                    }
+                                >
                                     Enviar
                                 </button>
                             </form>
