@@ -3,11 +3,16 @@ import {
     getProjetos,
     setEmail,
     setLoading,
+    setLoadingReq,
     setMenuOpenOrClose,
+    setMessage,
 } from '../store/actions';
 import reducer, { initialState } from '../store/reducers';
 import { projetos } from '../data';
 import jsPDF from 'jspdf';
+import { validate } from 'email-validator';
+import downloadCr from '../functions/downloadCr';
+import sendEmail from '../functions/sendEmail';
 
 export let AppContext = createContext();
 
@@ -35,29 +40,14 @@ let AppProvider = ({ children }) => {
     };
 
     // send Email
-    let sendEmail = (e, values) => {
+    let handleSendEmail = (e, values) => {
         e.preventDefault();
         let { name, email, message } = values;
-        console.log(name, email, message);
-        fetch('/api/sendEmail', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name,
-                email,
-                message,
-            }),
-        })
-            .then((res) => {
-                console.log(res);
-                alert('Certo');
-            })
-            .catch((err) => {
-                console.log(err);
-                alert('Ocorreu um erro');
-            });
+        if ((name, email, message)) {
+            sendEmail(values, dispatch, setMessage, setLoadingReq, setEmail);
+        } else {
+            console.log('naop tem todos os valores');
+        }
     };
 
     // get values to send email
@@ -67,17 +57,11 @@ let AppProvider = ({ children }) => {
 
     // download curriculum
     let handleDownloadCr = () => {
-        fetch('/images/cr/crAnderson.pdf').then((response) => {
-            response.blob().then((blob) => {
-                // Creating new object of PDF file
-                const fileURL = window.URL.createObjectURL(blob);
-                // Setting various property values
-                let alink = document.createElement('a');
-                alink.href = fileURL;
-                alink.download = 'crAnderson.pdf';
-                alink.click();
-            });
-        });
+        return downloadCr();
+    };
+
+    let handleSetMessage = (type, value) => {
+        return dispatch(setMessage(type, value));
     };
 
     return (
@@ -87,8 +71,9 @@ let AppProvider = ({ children }) => {
                 handleMenuOpenOrClose,
                 handleLoading,
                 handleSetValuesSendEmail,
-                sendEmail,
+                handleSendEmail,
                 handleDownloadCr,
+                handleSetMessage,
             }}
         >
             {children}

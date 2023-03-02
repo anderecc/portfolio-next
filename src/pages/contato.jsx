@@ -1,3 +1,4 @@
+import { validate } from 'email-validator';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 
@@ -15,14 +16,70 @@ import { AppContext } from '../context';
 import styles from '../styles/Contato.module.sass';
 
 export default function Contato(props) {
-    let { state, handleSetValuesSendEmail, sendEmail, handleDownloadCr } =
-        useContext(AppContext);
+    let {
+        state,
+        handleSetValuesSendEmail,
+        handleSendEmail,
+        handleDownloadCr,
+        handleSetMessage,
+    } = useContext(AppContext);
+
+    let handleGetName = (e) => {
+        if (e.target.value !== 0 && e.target.value.trim()) {
+            handleSetValuesSendEmail({
+                ...state.sendEmail,
+                name: e.target.value,
+            });
+            handleSetMessage('SET_MESSAGE_ERROR', {
+                name: '',
+            });
+        } else {
+            handleSetMessage('SET_MESSAGE_ERROR', {
+                name: 'Digite um nome válido.',
+            });
+        }
+    };
+    let handleGetEmail = (e) => {
+        if (validate(e.target.value) && e.target.value.trim()) {
+            handleSetValuesSendEmail({
+                ...state.sendEmail,
+                email: e.target.value,
+            });
+            handleSetMessage('SET_MESSAGE_ERROR', {
+                email: '',
+            });
+        } else {
+            handleSetMessage('SET_MESSAGE_ERROR', {
+                email: 'Digite um email válido.',
+            });
+        }
+    };
+    let handleGetMessage = (e) => {
+        if (e.target.value !== 0 && e.target.value.trim()) {
+            handleSetValuesSendEmail({
+                ...state.sendEmail,
+                message: e.target.value,
+            });
+            handleSetMessage('SET_MESSAGE_ERROR', {
+                message: '',
+            });
+        } else {
+            handleSetMessage('SET_MESSAGE_ERROR', {
+                message: 'Digite alguma mensagem.',
+            });
+        }
+    };
 
     return (
         <div className="layout">
             <Header contato></Header>
             {state.loading ? (
                 <Loading letras="Contato" />
+            ) : state.loadingReq ? (
+                <Loading
+                    letras="Enviando"
+                    loadingReq={state.loadingReq}
+                ></Loading>
             ) : (
                 <Content>
                     <h1 className={styles.h1}>Entre em contato</h1>
@@ -73,57 +130,65 @@ export default function Contato(props) {
                                     type="name"
                                     name="name"
                                     id={styles.email}
-                                    onChange={(e) =>
-                                        handleSetValuesSendEmail(e, {
-                                            name: e.target.value,
-                                        })
-                                    }
+                                    onChange={handleGetName}
                                     placeholder="Insira seu Nome"
                                 />
+                                {state.message.error.name ? (
+                                    <label className="message error">
+                                        {state.message.error.name}
+                                    </label>
+                                ) : (
+                                    <></>
+                                )}
+
                                 <input
                                     type="email"
                                     name="email"
                                     id={styles.email}
-                                    onChange={(e) =>
-                                        handleSetValuesSendEmail(e, {
-                                            ...state.sendEmail,
-                                            email: e.target.value,
-                                        })
-                                    }
+                                    onChange={handleGetEmail}
                                     placeholder="Insira seu e-mail"
                                 />
+                                {state.message.error.email ? (
+                                    <label className="message error">
+                                        {state.message.error.email}
+                                    </label>
+                                ) : (
+                                    <></>
+                                )}
 
                                 <textarea
                                     type="text"
                                     id={styles.mensagem}
-                                    onChange={(e) =>
-                                        handleSetValuesSendEmail(e, {
-                                            ...state.sendEmail,
-                                            message: e.target.value,
-                                        })
-                                    }
+                                    onChange={handleGetMessage}
                                     placeholder="Digite sua mensagem"
                                 />
+                                {state.message.error.message ? (
+                                    <label className="message error">
+                                        {state.message.error.message}
+                                    </label>
+                                ) : (
+                                    <></>
+                                )}
                                 <button
                                     className={styles.buttonEnviar}
                                     onClick={(e) =>
-                                        sendEmail(e, state.sendEmail)
+                                        handleSendEmail(e, state.sendEmail)
                                     }
                                 >
                                     Enviar
                                 </button>
                             </form>
-                            <button
-                                onClick={
-                                    () =>
-                                        console.log(
-                                            process.env.NEXT_PUBLIC_USER_MAIL
-                                        ) // remove this after you've confirmed it is working
-                                }
-                            >
-                                LOG
-                            </button>
+                            {state.message.success.send ? (
+                                <label className="message success">
+                                    {state.message.success.send}
+                                </label>
+                            ) : (
+                                <></>
+                            )}
                         </div>
+                        <button onClick={() => console.log(state.sendEmail)}>
+                            log
+                        </button>
                     </section>
                 </Content>
             )}

@@ -5,7 +5,7 @@ export default function Letra(props) {
         <span
             className={`${styles.letra} ${
                 props.menu ? styles.LetrasMenu : ''
-            } ${props.loading ? styles.LetrasLoading : ''}`}
+            } ${props.loading ? styles.LetrasLoading : styles.LetrasMenu}`}
             style={props.style}
         >
             {props.letra}

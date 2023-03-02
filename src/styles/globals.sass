@@ -47,25 +47,23 @@ input
   &:focus
     border-color: #648a64
 
-.space
-  background-image: url('../../public/images/spaceMobile.jpg')
-
-.sneaker
-  background-image: url('../../public/images/sneakerMobile.jpg')
-
-.potions
-  background-image: url('../../public/images/potionsMobile.png')
-
-.electrum
-  background-image: url('../../public/images/electrumMobile.png')
-
-.quizapp
-  background-image: url('../../public/images/quizappMobile.png')
-.calculadora
-  background-image: url('../../public/images/calcMobile.png')
-
 .project-title
   @include h1
   @include flex-center
   text-align: center
   justify-content: center
+
+.message
+  font-family: $fontText
+  font-size: 1rem
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  width: 100%
+  margin-bottom: 1rem
+
+.error
+  color: red
+
+.success
+  color: green
