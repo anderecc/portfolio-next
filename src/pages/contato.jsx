@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
+
 import Content from '../components/Content';
 import Header from '../components/header/Header';
 import {
@@ -14,23 +15,8 @@ import { AppContext } from '../context';
 import styles from '../styles/Contato.module.sass';
 
 export default function Contato(props) {
-    let { state, handleLoading, handleSetValuesSendEmail, sendEmail } =
+    let { state, handleSetValuesSendEmail, sendEmail, handleDownloadCr } =
         useContext(AppContext);
-
-    const onButtonClick = () => {
-        // using Java Script method to get PDF file
-        fetch('/images/cr/crAnderson.pdf').then((response) => {
-            response.blob().then((blob) => {
-                // Creating new object of PDF file
-                const fileURL = window.URL.createObjectURL(blob);
-                // Setting various property values
-                let alink = document.createElement('a');
-                alink.href = fileURL;
-                alink.download = 'crAnderson.pdf';
-                alink.click();
-            });
-        });
-    };
 
     return (
         <div className="layout">
@@ -74,7 +60,7 @@ export default function Contato(props) {
                                 Baixe também o meu curriculo
                                 <button
                                     className={styles.buttonDownload}
-                                    onClick={onButtonClick}
+                                    onClick={handleDownloadCr}
                                 >
                                     {IconDownload}
                                 </button>
@@ -127,6 +113,16 @@ export default function Contato(props) {
                                     Enviar
                                 </button>
                             </form>
+                            <button
+                                onClick={
+                                    () =>
+                                        console.log(
+                                            process.env.NEXT_PUBLIC_USER_MAIL
+                                        ) // remove this after you've confirmed it is working
+                                }
+                            >
+                                LOG
+                            </button>
                         </div>
                     </section>
                 </Content>

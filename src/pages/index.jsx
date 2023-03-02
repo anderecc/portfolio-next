@@ -1,7 +1,9 @@
+import { AppContext } from '../context';
+import { useEffect, useState, useContext } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState, useContext } from 'react';
+
 import Content from '../components/Content';
 import Header from '../components/header/Header';
 import {
@@ -21,7 +23,6 @@ import {
     IconTS,
 } from '../components/icons';
 import Loading from '../components/Loading';
-import { AppContext } from '../context';
 import styles from '../styles/Home.module.sass';
 
 export default function Home() {

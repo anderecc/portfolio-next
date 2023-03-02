@@ -20,11 +20,12 @@ let AppProvider = ({ children }) => {
             dispatch(setLoading(false));
         }, 1500);
     }, []);
-
+    //menu
     let handleMenuOpenOrClose = (value) => {
         return dispatch(setMenuOpenOrClose(value));
     };
 
+    // setLoading
     let handleLoading = () => {
         dispatch(setLoading(true));
         dispatch(setMenuOpenOrClose(false));
@@ -33,6 +34,7 @@ let AppProvider = ({ children }) => {
         }, 1500);
     };
 
+    // send Email
     let sendEmail = (e, values) => {
         e.preventDefault();
         let { name, email, message } = values;
@@ -58,8 +60,24 @@ let AppProvider = ({ children }) => {
             });
     };
 
+    // get values to send email
     let handleSetValuesSendEmail = (e, values) => {
         return dispatch(setEmail(e, values));
+    };
+
+    // download curriculum
+    let handleDownloadCr = () => {
+        fetch('/images/cr/crAnderson.pdf').then((response) => {
+            response.blob().then((blob) => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'crAnderson.pdf';
+                alink.click();
+            });
+        });
     };
 
     return (
@@ -70,6 +88,7 @@ let AppProvider = ({ children }) => {
                 handleLoading,
                 handleSetValuesSendEmail,
                 sendEmail,
+                handleDownloadCr,
             }}
         >
             {children}
