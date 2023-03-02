@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer');
-import config from '../../../config.local';
 
 export default function sendEmail(req, res) {
     let transporter = nodemailer.createTransport({
