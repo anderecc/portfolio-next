@@ -25,7 +25,7 @@ export default function Contato(props) {
     } = useContext(AppContext);
 
     let handleGetName = (e) => {
-        if (e.target.value !== 0 && e.target.value.trim()) {
+        if (e.target.value.length !== 0 && e.target.value.trim()) {
             handleSetValuesSendEmail({
                 ...state.sendEmail,
                 name: e.target.value,
@@ -36,6 +36,10 @@ export default function Contato(props) {
         } else {
             handleSetMessage('SET_MESSAGE_ERROR', {
                 name: 'Digite um nome válido.',
+            });
+            handleSetValuesSendEmail({
+                ...state.sendEmail,
+                name: '',
             });
         }
     };
@@ -52,10 +56,14 @@ export default function Contato(props) {
             handleSetMessage('SET_MESSAGE_ERROR', {
                 email: 'Digite um email válido.',
             });
+            handleSetValuesSendEmail({
+                ...state.sendEmail,
+                email: '',
+            });
         }
     };
     let handleGetMessage = (e) => {
-        if (e.target.value !== 0 && e.target.value.trim()) {
+        if (e.target.value.length !== 0 && e.target.value.trim()) {
             handleSetValuesSendEmail({
                 ...state.sendEmail,
                 message: e.target.value,
@@ -66,6 +74,10 @@ export default function Contato(props) {
         } else {
             handleSetMessage('SET_MESSAGE_ERROR', {
                 message: 'Digite alguma mensagem.',
+            });
+            handleSetValuesSendEmail({
+                ...state.sendEmail,
+                message: '',
             });
         }
     };
@@ -123,72 +135,77 @@ export default function Contato(props) {
                                 </button>
                             </p>
                         </div>
-                        <div>
-                            <p className={styles.text}>Envie sua mensagem</p>
-                            <form className={styles.form}>
-                                <input
-                                    type="name"
-                                    name="name"
-                                    id={styles.email}
-                                    onChange={handleGetName}
-                                    placeholder="Insira seu Nome"
-                                />
-                                {state.message.error.name ? (
-                                    <label className="message error">
-                                        {state.message.error.name}
-                                    </label>
-                                ) : (
-                                    <></>
-                                )}
-
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id={styles.email}
-                                    onChange={handleGetEmail}
-                                    placeholder="Insira seu e-mail"
-                                />
-                                {state.message.error.email ? (
-                                    <label className="message error">
-                                        {state.message.error.email}
-                                    </label>
-                                ) : (
-                                    <></>
-                                )}
-
+                        <form className={styles.form}>
+                            <p className={styles.text}>Envie sua mensagem: </p>
+                            <div className={styles.inputsContent}>
+                                <div className={styles.inputContainer}>
+                                    <input
+                                        type="name"
+                                        name="name"
+                                        id={styles.email}
+                                        onChange={handleGetName}
+                                        placeholder="Insira seu Nome"
+                                    />
+                                    {state.messages.error.name ? (
+                                        <label className="message error">
+                                            {state.messages.error.name}
+                                        </label>
+                                    ) : (
+                                        <></>
+                                    )}
+                                </div>
+                                <div className={styles.inputContainer}>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id={styles.email}
+                                        onChange={handleGetEmail}
+                                        placeholder="Insira seu E-mail"
+                                    />
+                                    {state.messages.error.email ? (
+                                        <label className="message error">
+                                            {state.messages.error.email}
+                                        </label>
+                                    ) : (
+                                        <></>
+                                    )}
+                                </div>
+                            </div>
+                            <div className={styles.textContainer}>
                                 <textarea
                                     type="text"
                                     id={styles.mensagem}
                                     onChange={handleGetMessage}
                                     placeholder="Digite sua mensagem"
                                 />
-                                {state.message.error.message ? (
+                                {state.messages.error.message ? (
                                     <label className="message error">
-                                        {state.message.error.message}
+                                        {state.messages.error.message}
                                     </label>
                                 ) : (
                                     <></>
                                 )}
-                                <button
-                                    className={styles.buttonEnviar}
-                                    onClick={(e) =>
-                                        handleSendEmail(e, state.sendEmail)
-                                    }
-                                >
-                                    Enviar
-                                </button>
-                            </form>
-                            {state.message.success.send ? (
-                                <label className="message success">
-                                    {state.message.success.send}
-                                </label>
-                            ) : (
-                                <></>
-                            )}
-                        </div>
-                        <button onClick={() => console.log(state.sendEmail)}>
-                            log
-                        </button>
+                            </div>
+                            <button
+                                className={styles.buttonEnviar}
+                                onClick={(e) =>
+                                    handleSendEmail(e, state.sendEmail)
+                                }
+                            >
+                                Enviar
+                            </button>
+                        </form>
+                        {state.messages.success.send ? (
+                            <label className="message success">
+                                {state.messages.success.send}
+                            </label>
+                        ) : state.messages.error.erro ? (
+                            <label className="message error">
+                                {state.messages.error.erro}
+                            </label>
+                        ) : (
+                            <></>
+                        )}
                     </section>
                 </Content>
             )}

@@ -26,7 +26,7 @@ import Loading from '../components/Loading';
 import styles from '../styles/Home.module.sass';
 
 export default function Home() {
-    const { state, handleLoading } = useContext(AppContext);
+    const { state } = useContext(AppContext);
 
     return (
         <div className="layout">

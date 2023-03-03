@@ -20,3 +20,7 @@ export let setEmail = (values) => {
 export let setMessage = (type, value) => {
     return { type: type, payload: value };
 };
+
+export let resetMessages = (values) => {
+    return { type: 'RESET_MESSAGES', payload: values };
+};

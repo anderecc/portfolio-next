@@ -120,7 +120,7 @@ export default function Header(props) {
                                         : null
                                 }
                             >
-                                Sobre eu
+                                Sobre mim
                             </a>
                         </Link>
                     </li>

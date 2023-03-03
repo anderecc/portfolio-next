@@ -1,6 +1,7 @@
 import { createContext, useReducer, useEffect } from 'react';
 import {
     getProjetos,
+    resetMessages,
     setEmail,
     setLoading,
     setLoadingReq,
@@ -34,6 +35,19 @@ let AppProvider = ({ children }) => {
     let handleLoading = () => {
         dispatch(setLoading(true));
         dispatch(setMenuOpenOrClose(false));
+        dispatch(
+            setEmail({
+                name: '',
+                email: '',
+                message: '',
+            })
+        );
+        dispatch(
+            resetMessages({
+                success: {},
+                error: {},
+            })
+        );
         return setTimeout(() => {
             dispatch(setLoading(false));
         }, 1500);
@@ -43,16 +57,34 @@ let AppProvider = ({ children }) => {
     let handleSendEmail = (e, values) => {
         e.preventDefault();
         let { name, email, message } = values;
-        if ((name, email, message)) {
-            sendEmail(values, dispatch, setMessage, setLoadingReq, setEmail);
+
+        if (
+            name.length !== 0 &&
+            name.trim() &&
+            validate(email) &&
+            email.trim() &&
+            message.length !== 0 &&
+            message.trim()
+        ) {
+            sendEmail(
+                { name, email, message },
+                dispatch,
+                setMessage,
+                setLoadingReq,
+                setEmail
+            );
         } else {
-            console.log('naop tem todos os valores');
+            dispatch(
+                setMessage('SET_MESSAGE_ERROR', {
+                    erro: 'Preencha todos os campos.',
+                })
+            );
         }
     };
 
     // get values to send email
-    let handleSetValuesSendEmail = (e, values) => {
-        return dispatch(setEmail(e, values));
+    let handleSetValuesSendEmail = (values) => {
+        return dispatch(setEmail(values));
     };
 
     // download curriculum

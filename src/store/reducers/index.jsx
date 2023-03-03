@@ -9,7 +9,7 @@ export let initialState = {
         email: '',
         message: '',
     },
-    message: {
+    messages: {
         success: {},
         error: {},
     },
@@ -37,19 +37,25 @@ let reducer = (state, action) => {
         case 'SET_MESSAGE_ERROR':
             return {
                 ...state,
-                message: {
-                    ...state.message,
-                    error: { ...state.message.error, ...action.payload },
+                messages: {
+                    ...state.messages,
+                    error: { ...state.messages.error, ...action.payload },
                 },
             };
         case 'SET_MESSAGE_SUCCESS':
             return {
                 ...state,
-                message: {
-                    ...state.message,
-                    success: { ...state.message.success, ...action.payload },
+                messages: {
+                    ...state.messages,
+                    success: { ...state.messages.success, ...action.payload },
                 },
             };
+        case 'RESET_MESSAGES': {
+            return {
+                ...state,
+                messages: action.payload,
+            };
+        }
         default:
             return { ...state };
     }

@@ -6,7 +6,7 @@ import { AppContext } from '../context';
 import styles from '../styles/Sobre.module.sass';
 
 export default function Sobre(props) {
-    let { state, handleLoading } = useContext(AppContext);
+    let { state } = useContext(AppContext);
 
     return (
         <div className="layout">
