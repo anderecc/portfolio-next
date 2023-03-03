@@ -11,6 +11,7 @@ import {
     IconLinkedIn,
     IconPhone,
 } from '../components/icons';
+import Layout from '../components/Layout';
 import Loading from '../components/Loading';
 import { AppContext } from '../context';
 import styles from '../styles/Contato.module.sass';
@@ -83,8 +84,7 @@ export default function Contato(props) {
     };
 
     return (
-        <div className="layout">
-            <Header contato></Header>
+        <Layout page={'contato'} title={'Contato'}>
             {state.loading ? (
                 <Loading letras="Contato" />
             ) : state.loadingReq ? (
@@ -209,6 +209,6 @@ export default function Contato(props) {
                     </section>
                 </Content>
             )}
-        </div>
+        </Layout>
     );
 }

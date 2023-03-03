@@ -3,6 +3,7 @@ import Header from '../../../components/header/Header';
 import Card from '../../../components/Card';
 import { AppContext } from '../../../context';
 import styles from '../../../styles/Projetos-Javascript.module.sass';
+import Layout from '../../../components/Layout';
 
 let ProjetosJavascript = () => {
     let { state } = useContext(AppContext);
@@ -34,13 +35,12 @@ let ProjetosJavascript = () => {
     };
 
     return (
-        <div className="layout">
-            <Header projetos></Header>
+        <Layout page={'projetos'} title={'Projetos com Javascript'}>
             <h3 className="project-title">
                 Projetos com Javascript básicos e intermediários
             </h3>
             <div className={`${styles.container}`}>{renderProjects()}</div>
-        </div>
+        </Layout>
     );
 };
 

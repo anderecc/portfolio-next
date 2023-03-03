@@ -24,18 +24,13 @@ import {
 } from '../components/icons';
 import Loading from '../components/Loading';
 import styles from '../styles/Home.module.sass';
+import Layout from '../components/Layout';
 
 export default function Home() {
     const { state } = useContext(AppContext);
 
     return (
-        <div className="layout">
-            <Head>
-                <title>Anderson - Portfólio</title>
-
-                <link rel="icon" href="./images/anderson.svg" />
-            </Head>
-            <Header inicio></Header>
+        <Layout page={'inicio'} title={'Anderson Portfólio'}>
             {state.loading ? (
                 <Loading letras="Início" />
             ) : (
@@ -288,6 +283,6 @@ export default function Home() {
                     </section>
                 </Content>
             )}
-        </div>
+        </Layout>
     );
 }

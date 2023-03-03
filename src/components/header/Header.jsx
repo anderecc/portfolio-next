@@ -100,7 +100,7 @@ export default function Header(props) {
                                 onClick={() => handleLoading()}
                                 className={styles.link}
                                 style={
-                                    props.inicio
+                                    props.page === 'inicio'
                                         ? { fontWeight: 'bold', color: '#eed' }
                                         : null
                                 }
@@ -115,7 +115,7 @@ export default function Header(props) {
                                 onClick={() => handleLoading()}
                                 className={styles.link}
                                 style={
-                                    props.sobre
+                                    props.page === 'sobre'
                                         ? { fontWeight: 'bold', color: '#eed' }
                                         : null
                                 }
@@ -130,7 +130,7 @@ export default function Header(props) {
                                 onClick={() => handleLoading()}
                                 className={styles.link}
                                 style={
-                                    props.projetos
+                                    props.page === 'projetos'
                                         ? { fontWeight: 'bold', color: '#eed' }
                                         : null
                                 }
@@ -145,7 +145,7 @@ export default function Header(props) {
                                 onClick={() => handleLoading()}
                                 className={styles.link}
                                 style={
-                                    props.contato
+                                    props.page === 'contato'
                                         ? { fontWeight: 'bold', color: '#eed' }
                                         : null
                                 }

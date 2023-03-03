@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import Content from '../../components/Content';
 import Header from '../../components/header/Header';
+import Layout from '../../components/Layout';
 import Loading from '../../components/Loading';
 import { AppContext } from '../../context';
 import styles from '../../styles/Projetos.module.sass';
@@ -11,8 +12,7 @@ export default function Projetos(props) {
     let { state, handleLoading } = useContext(AppContext);
 
     return (
-        <div className="layout">
-            <Header projetos></Header>
+        <Layout page={'projetos'} title={'Projetos'}>
             {state.loading ? (
                 <Loading letras="Projetos" />
             ) : (
@@ -78,6 +78,6 @@ export default function Projetos(props) {
                     </div>
                 </Content>
             )}
-        </div>
+        </Layout>
     );
 }

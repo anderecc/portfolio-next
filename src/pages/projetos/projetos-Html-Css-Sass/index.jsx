@@ -3,6 +3,7 @@ import Header from '../../../components/header/Header';
 import Card from '../../../components/Card';
 import { AppContext } from '../../../context';
 import styles from '../../../styles/Projetos-html-css-sass.module.sass';
+import Layout from '../../../components/Layout';
 
 let ProjetosHtmlCssSass = () => {
     let { state } = useContext(AppContext);
@@ -34,11 +35,10 @@ let ProjetosHtmlCssSass = () => {
     };
 
     return (
-        <div className="layout">
-            <Header projetos></Header>
+        <Layout page={'projetos'} title={'Projetos com Html, Css e Sass'}>
             <h3 className="project-title">Projetos com Html, Css e Sass</h3>
             <div className={`${styles.container}`}>{renderProjects()}</div>
-        </div>
+        </Layout>
     );
 };
 

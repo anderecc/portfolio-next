@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import Content from '../components/Content';
 import Header from '../components/header/Header';
+import Layout from '../components/Layout';
 import Loading from '../components/Loading';
 import { AppContext } from '../context';
 import styles from '../styles/Sobre.module.sass';
@@ -9,8 +10,7 @@ export default function Sobre(props) {
     let { state } = useContext(AppContext);
 
     return (
-        <div className="layout">
-            <Header sobre></Header>
+        <Layout page={'sobre'} title={'Sobre mim'}>
             {state.loading ? (
                 <Loading letras="Sobre" />
             ) : (
@@ -91,6 +91,6 @@ export default function Sobre(props) {
                     </section>
                 </Content>
             )}
-        </div>
+        </Layout>
     );
 }

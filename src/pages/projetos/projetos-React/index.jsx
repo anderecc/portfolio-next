@@ -3,6 +3,7 @@ import Header from '../../../components/header/Header';
 import Card from '../../../components/Card';
 import { AppContext } from '../../../context';
 import styles from '../../../styles/Projetos-react.module.sass';
+import Layout from '../../../components/Layout';
 
 let ProjetosReact = () => {
     let { state } = useContext(AppContext);
@@ -27,13 +28,12 @@ let ProjetosReact = () => {
     };
 
     return (
-        <div className="layout">
-            <Header projetos></Header>
+        <Layout page={'projetos'} title={'Projetos com React'}>
             <h3 className="project-title">
                 Projetos com React básico e intermediário
             </h3>
             <div className={`${styles.container}`}>{renderProjects()}</div>
-        </div>
+        </Layout>
     );
 };
 
