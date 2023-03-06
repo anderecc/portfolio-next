@@ -80,7 +80,7 @@ export default function Home() {
                                 </li>
                                 <li>
                                     <span>{IconREACT}</span>
-                                    <span>React.js (Intermediário)</span>
+                                    <span>React.js (Avançado)</span>
                                 </li>
                                 <li>
                                     <span>{IconNext}</span>

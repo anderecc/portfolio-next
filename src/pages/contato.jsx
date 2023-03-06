@@ -101,7 +101,7 @@ export default function Contato(props) {
                             <span>(54) 9 9946-6790</span>
                         </p>
                         <p className={styles.text}>
-                            <span>{IconEmail}</span> E-mail:
+                            <span>{IconEmail}</span> Email:
                             <span>andersondbl06@gmail.com</span>
                         </p>
                         <div>
@@ -160,7 +160,7 @@ export default function Contato(props) {
                                         name="email"
                                         id={styles.email}
                                         onChange={handleGetEmail}
-                                        placeholder="Insira seu E-mail"
+                                        placeholder="Insira seu Email"
                                     />
                                     {state.messages.error.email ? (
                                         <label className="message error">
