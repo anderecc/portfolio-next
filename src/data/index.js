@@ -299,5 +299,15 @@ export let projetos = {
             name: '11-calculator',
             image: '/images/projetos-react/11-calculator.png',
         },
+        {
+            id: 12,
+            name: '12-sidebar',
+            image: '/images/projetos-react/12-sidebar.png',
+        },
+        {
+            id: 13,
+            name: '13-strapi-menu',
+            image: '/images/projetos-react/13-strapi-menu.png',
+        },
     ],
 };

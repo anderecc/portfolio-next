@@ -55,9 +55,9 @@ export default function Projetos(props) {
                                 image="/images/projetos-javascript/34-sneaker-ecommerce.png"
                             />
                             <Card
-                                title="english-dictionary"
-                                link="https://anderecc.github.io/projetos-javascript/14-english-dictionary/"
-                                image="/images/projetos-javascript/14-english-dictionary.png"
+                                title="strapi-menu"
+                                link="https://projetos-react-psi.vercel.app/13-strapi-menu"
+                                image="/images/projetos-react/13-strapi-menu.png"
                             />
                             <Card
                                 title="calculator"
