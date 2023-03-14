@@ -70,9 +70,9 @@ export default function Projetos(props) {
                                 image="/images/projetos-react/6-menu-restaurant.png"
                             />
                             <Card
-                                title="lista-tarefa-reducer"
-                                link="https://projetos-react-psi.vercel.app/9-lista-tarefa-reducer"
-                                image="/images/projetos-react/9-lista-tarefa-reducer.png"
+                                title="cocktails"
+                                link="https://projetos-react-psi.vercel.app/14-cocktails"
+                                image="/images/projetos-react/14-cocktails.png"
                             />
                         </div>
                     </div>

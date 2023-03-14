@@ -309,5 +309,10 @@ export let projetos = {
             name: '13-strapi-menu',
             image: '/images/projetos-react/13-strapi-menu.png',
         },
+        {
+            id: 14,
+            name: '14-cocktails',
+            image: '/images/projetos-react/14-cocktails.png',
+        },
     ],
 };
